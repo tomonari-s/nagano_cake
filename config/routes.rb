@@ -1,50 +1,52 @@
 Rails.application.routes.draw do
+  
+  
+  namespace :admin do
+    resources :order_orders, only: [:update]
+  end
+  namespace :admin do
+    resources :orders, only: [:show, :update]
+  end
+  namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update]
+  end
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update]
+  end
+  namespace :admin do
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+  end
+  namespace :admin do
+    resources :homes, only: [:top ]
+  end
+  namespace :admin do
+    resources :sessions, only: [:new, :create, :destroy]
+  end
+  
+  
   namespace :public do
-    get 'deliveries/index'
-    get 'deliveries/edit'
-    get 'deliveries/create'
-    get 'deliveries/update'
-    get 'deliveries/destroy'
+    resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
   end
   namespace :public do
-    get 'orders/new'
-    get 'orders/comfirm'
-    get 'orders/complete'
-    get 'orders/create'
-    get 'orders/index'
-    get 'orders/show'
+    resources :orders, only: [:comfirm, :complete, :create, :index, :show]
   end
   namespace :public do
-    get 'cart_items/index'
-    get 'cart_items/update'
-    get 'cart_items/destroy'
-    get 'cart_items/destroy_all'
-    get 'cart_items/create'
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   end
   namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-    get 'customers/unsubscribe'
-    get 'customers/withdraw'
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
   end
   namespace :public do
-    get 'sessions/new'
-    get 'sessions/create'
-    get 'sessions/destroy'
+    resources :sessions, only: [:new, :create, :destroy]
   end
   namespace :public do
-    get 'registrations/new'
-    get 'registrations/create'
+    resources :registrations, only: [:new, :create]
   end
   namespace :public do
-    get 'items/index'
-    get 'items/show'
+    resources :items, only: [:index, :show]
   end
   namespace :public do
-    get 'homes/new'
-    get 'homes/top'
-    get 'homes/about'
+    resources :homes, only: [:new, :top, :about]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
