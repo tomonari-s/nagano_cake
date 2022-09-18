@@ -9,6 +9,17 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
   
+  # namespace :public do
+    # resources :homes do
+      # collection do
+        #アクションを個別に指定する場合
+        # get action: :top
+        # get :about, action:about
+      # end  
+    # end
+  # end    
+  
+  
   namespace :admin do
     resources :order_orders, only: [:update]
   end
@@ -53,8 +64,11 @@ Rails.application.routes.draw do
   namespace :public do
     resources :items, only: [:index, :show]
   end
+  
   namespace :public do
-    resources :homes, only: [:new, :top, :about]
+    resources :homes, only: [:top, :about]
+    root to: 'homes#top'
+    get "home/about" => "homes#about", as: "about"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

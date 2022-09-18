@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NaganoCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!--<head>-->
+    <!--<title>NaganoCake</title>-->
+    <%#= csrf_meta_tags %>
+    <%#= csp_meta_tag %>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <!--</head>-->
   
 <body class="d-flex flex-column vh-100">
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <%#= link_to public_homes, class:"navbar-brand" do %>
+      <%= link_to public_root_path, class:"navbar-brand" do %>
         <span>NaganoCake</span>
-      <%# end %>  
+      <% end %>  
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,7 +27,7 @@
           <% if customer_signed_in? %>
           
           
-          <li class:"nav-link text-light">
+          <li>
             <%= link_to public_customer , class:"nav-link text-light" do %>マイページ
             <% end %>
           </li>
@@ -47,20 +47,19 @@
           
           <% else %>
           <li>
-            <%#= link_to public_about_path, class:"nav-link text-light" do %>
-              <i class="fas fa-home fa-w-18"  ></i>Home
-            <%# end %>
+            <%= link_to public_about_path, class: "btn btn-secondary" do %>adout
+            <% end %>
           </li>
           <li>
-            <%= link_to public_items_path, class:"nav-link text-light" do %>商品一覧
+            <%= link_to public_items_path, class: "btn btn-secondary" do %>商品一覧
             <% end %>      
           </li>
           <li>
-            <%= link_to new_customer_registration_path, class:"nav-link text-light" do %>新規登録
+            <%= link_to new_customer_registration_path, class: "btn btn-secondary" do %>新規登録
             <% end %>      
           </li>
           <li>
-            <%= link_to customer_session_path, class:"nav-link text-light" do %>ログイン
+            <%= link_to customer_session_path, class: "btn btn-secondary" do %>ログイン
             <% end %>         
           </li>
           <% end %>
