@@ -17,7 +17,11 @@ Rails.application.routes.draw do
         # get :about, action:about
       # end  
     # end
-  # end    
+  # end   
+  
+  namespace :admin do
+    root "homes#top"
+  end
   
   
   namespace :admin do
